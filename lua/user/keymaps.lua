@@ -3,8 +3,7 @@ local keymap = vim.keymap.set
 -- Silent keymap option
 local opts = { silent = true }
 
---Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
+--Remap space as leader key keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
 -- Modes
@@ -14,6 +13,13 @@ vim.g.mapleader = " "
 --   visual_block_mode = "x",
 --   term_mode = "t",
 --   command_mode = "c",
+-- Author: louis lee , setting -------
+-- keymap("n", "<cr>" , ":", {})
+vim.cmd(" nnoremap <expr> <cr> &filetype=='qf'? '<cr>':':'")
+keymap("i", "kj" , "<esc>", opts)
+keymap("n", "\\k", ":e ~/.config/nvim/lua/user/keymaps.lua<cr>", opts)
+keymap("n", "\\s", ":luafile %<cr>", opts)
+keymap("n", "<home>", "^", opts)
 
 -- Normal --
 -- Better window navigation
