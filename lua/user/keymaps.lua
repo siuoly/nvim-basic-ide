@@ -20,6 +20,7 @@ keymap("i", "kj" , "<esc>", opts)
 keymap("n", "\\k", ":e ~/.config/nvim/lua/user/keymaps.lua<cr>", opts)
 keymap("n", "\\s", ":luafile %<cr>", opts)
 keymap("n", "<home>", "^", opts)
+keymap("n", "t", "@",opts)
 
 -- Normal --
 -- Better window navigation
@@ -33,6 +34,9 @@ keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+--- clear register: 
+-- command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
+
 
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
