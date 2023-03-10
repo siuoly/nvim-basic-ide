@@ -16,6 +16,7 @@ vim.g.mapleader = " "
 -- Author: louis lee , setting -------
 -- keymap("n", "<cr>" , ":", {})
 vim.cmd(" nnoremap <expr> <cr> &filetype=='qf'? '<cr>':':'")
+keymap("c", "qq", "q!<cr>", opts)
 keymap("i", "kj" , "<esc>", opts)
 keymap("n", "\\k", ":e ~/.config/nvim/lua/user/keymaps.lua<cr>", opts)
 keymap("n", "\\s", ":luafile %<cr>", opts)
