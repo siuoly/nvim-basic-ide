@@ -20,3 +20,10 @@ require "user.indentline"
 require "user.alpha"
 require "user.lsp"
 require "user.dap"
+-- 語法教學
+-- vim.diagnostic.config({ virtual_text = true, signs=false })
+--*vim.diagnostic.disable()*
+-- 1    vim.diagnostic.severity.ERROR
+-- 2    vim.diagnostic.severity.WARN
+-- 3    vim.diagnostic.severity.INFO
+-- 4    vim.diagnostic.severity.HINT

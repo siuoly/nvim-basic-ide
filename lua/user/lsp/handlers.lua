@@ -26,6 +26,7 @@ M.setup = function()
 		virtual_text = false, -- disable virtual text
 		signs = {
 			active = signs, -- show signs
+      severity = { min = vim.diagnostic.severity.ERROR},  -- 關閉警告訊息
 		},
 		update_in_insert = true,
 		underline = true,
