@@ -20,6 +20,7 @@ require "user.indentline"
 require "user.alpha"
 require "user.lsp"
 require "user.dap"
+
 -- 語法教學
 -- vim.diagnostic.config({ virtual_text = true, signs=false })
 --*vim.diagnostic.disable()*
@@ -27,3 +28,23 @@ require "user.dap"
 -- 2    vim.diagnostic.severity.WARN
 -- 3    vim.diagnostic.severity.INFO
 -- 4    vim.diagnostic.severity.HINT
+--
+--
+
+-- diagnostic: text show on the editor, content provide by linter,...
+-- linter: (1)syntax error,and (2)style non-apropreate, before running(language without compiler tool), it is a program,e.g. sumneko_lua, pyright
+-- Formatter: after linter show style error, using `formatter` to fix error. e.g. yapf, autopep8, black(python)
+
+-- null-ls plugin: all the things like formatter,autocomplete,linter,code_actions,diagnostic,hover...,but it is not a lsp server.
+--             the same level with other lsp server, like pyright, and this null-ls call linter,formatter,code_actions for lsp feature.
+
+-- mason.nvim plugin: packagemanger supports DAP servers, linters, formatters, and more. Very useful.
+
+
+
+-------------------------
+-- TODO
+-- Native lsp setting
+-- lsp-config setting
+-- mason-lsp-config setting
+--
