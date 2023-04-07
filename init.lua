@@ -21,6 +21,7 @@ require "user.alpha"
 require "user.lsp"
 require "user.dap"
 
+
 -- 語法教學
 -- vim.diagnostic.config({ virtual_text = true, signs=false })
 --*vim.diagnostic.disable()*
@@ -30,7 +31,7 @@ require "user.dap"
 -- 4    vim.diagnostic.severity.HINT
 --
 --
-
+--
 -- diagnostic: text show on the editor, content provide by linter,...
 -- linter: (1)syntax error,and (2)style non-apropreate, before running(language without compiler tool), it is a program,e.g. sumneko_lua, pyright
 -- Formatter: after linter show style error, using `formatter` to fix error. e.g. yapf, autopep8, black(python)
@@ -40,11 +41,22 @@ require "user.dap"
 
 -- mason.nvim plugin: packagemanger supports DAP servers, linters, formatters, and more. Very useful.
 
+-- lsp-config. setting lsp feature, generally setting lsp-server, mapping.
+--    local lsoconfig = require("lsp-config")
+--    lspconfig.pyright.setup()
+--    lspconfig.tsserver.setup()
+--
+--   But now combine it with "mason", "null-ls", "handler" for easy setting
+--
 
 
 -------------------------
 -- TODO
 -- Native lsp setting
--- lsp-config setting
+-- [o]lsp-config setting
 -- mason-lsp-config setting
+-- dictionary
 --
+-- --------------------
+-- LSP help
+-- attach,  detach, 
