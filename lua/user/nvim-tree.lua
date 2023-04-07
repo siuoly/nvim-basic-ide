@@ -9,6 +9,7 @@ if not config_status_ok then
 end
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
+local api = require("nvim-tree.api")
 
 nvim_tree.setup {
   update_focused_file = {
@@ -64,4 +65,8 @@ nvim_tree.setup {
       },
     },
   },
+  -- on_attach = function (bufnr)
+  --   vim.keymap.set("n",'<m-j>',api.marks.navigate.next ,{desc='Mark',buffer = bufnr, noremap=true, silent=true, nowait=true})
+  --   vim.keymap.set("n",'<m-k>',api.marks.navigate.prev ,{desc='Mark',buffer = bufnr, noremap=true, silent=true, nowait=true})
+  -- end
 }

@@ -27,3 +27,12 @@ require "user.dap"
 -- 2    vim.diagnostic.severity.WARN
 -- 3    vim.diagnostic.severity.INFO
 -- 4    vim.diagnostic.severity.HINT
+
+
+--
+-- mason:
+--   file: user.lsp.settings.handler 
+--   diagnostic symbol
+--   hover , signature setting
+--   keymap:
+--     definition, declaration, hover, implementation, reference, diagnostic... default vim lsp function

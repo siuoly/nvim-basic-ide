@@ -22,6 +22,7 @@ keymap("n", "\\k", ":e ~/.config/nvim/lua/user/keymaps.lua<cr>", opts)
 keymap("n", "\\s", ":luafile %<cr>", opts)
 keymap("n", "<home>", "^", opts)
 keymap("n", "t", "@",opts)
+keymap("n", "ge", "<cmd>cclose<CR>", opts) -- using for close refrence qflist opened by <gr>
 
 -- Normal --
 -- Better window navigation
@@ -73,7 +74,8 @@ keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 keymap("n", "<leader>fk", ":Telescope keymaps<CR>", opts)
 keymap("n", "<leader>fo", ":Telescope oldfiles<CR>", opts)
-
+keymap("n", "<leader>fh", ":Telescope help_tags<CR>", opts)
+keymap("n", "<leader>fm", [[:lua require "telescope.builtin".treesitter({default_text="function"})]], opts)
 -- Git
 keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
 
