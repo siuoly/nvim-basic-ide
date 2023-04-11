@@ -1,3 +1,7 @@
+--[[
+--diagnostics 細部設定 flack8輸出設定
+--
+--]]
 local null_ls_status_ok, null_ls = pcall(require, "null-ls")
 if not null_ls_status_ok then
   return
@@ -19,6 +23,8 @@ null_ls.setup {
     formatting.black.with { extra_args = { "--fast" } },
     formatting.stylua,
     formatting.google_java_format,
+    formatting.black,
+    -- formatting.isort, -- too slow
     -- diagnostics.flake8,  --太吵了
   },
 }
