@@ -113,6 +113,8 @@ return packer.startup(function(use)
     end,
     opt=false
   }
+  use {"wfxr/minimap.vim"}  -- code-minimap (類似vscode右方的程式碼導覽行)
+  -- :Minimap, MinimapClose
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
