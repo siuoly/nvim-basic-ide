@@ -93,6 +93,11 @@ return packer.startup(function(use)
     "nvim-treesitter/nvim-treesitter",
     commit = "8e763332b7bf7b3a426fd8707b7f5aa85823a5ac",
   }
+  use{
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    after = "nvim-treesitter",
+    requires = "nvim-treesitter/nvim-treesitter",
+  }
 
   -- Git
   use { "lewis6991/gitsigns.nvim", commit = "f98c85e7c3d65a51f45863a34feb4849c82f240f" }
@@ -103,6 +108,23 @@ return packer.startup(function(use)
   use { "ravenxrz/DAPInstall.nvim", commit = "8798b4c36d33723e7bba6ed6e2c202f84bb300de" }
 
   -- Custom plugins
+
+  use {
+    "benfowler/telescope-luasnip.nvim",
+    module = "telescope._extensions.luasnip",  -- if you wish to lazy-load
+    after = "telescope.nvim",
+    requires = "saadparwaiz1/cmp_luasnip",
+  }
+  use{"petertriho/nvim-scrollbar",commit="f85b29805cf917f9b1d5ff0c9a52c5b1bdca5943",
+    config = function()
+    require("scrollbar").setup()
+    end
+  }
+  use { "kylechui/nvim-surround",commit = "e6047128e57c1aff1566fb9f627521d2887fc77a",
+    config = function()
+      require("nvim-surround").setup({ })
+    end
+  }
   use { "jbyuki/one-small-step-for-vimkind"}  -- lua debuger adapter
   use { "siuoly/clever-f.vim",
    config=function ()
@@ -110,11 +132,19 @@ return packer.startup(function(use)
       let g:clever_f_fix_key_direction=1
       let g:clever_f_chars_match_any_signs=";"
       ]]
-    end,
-    opt=false
+    end, opt=false
   }
-  use {"wfxr/minimap.vim"}  -- code-minimap (類似vscode右方的程式碼導覽行)
-  -- :Minimap, MinimapClose
+  use {
+  "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim",
+  config = function() require("todo-comments").setup { } end
+  }
+  use{ "tpope/vim-obsession" } -- :Obss call
+  -- INFO: https://www.bilibili.com/read/cv22495061?from=articleDetail 這裡列出很多可用清單/fun
+  -- TODO: try https://github.com/folke/noice.nvim    漂亮展示行為
+  -- https://github.com/simrat39/symbols-outline.nvim  展示函數列表，可改名
+  -- https://github.com/folke/trouble.nvim   列出diagnostic列表
+
+  -- use {"wfxr/minimap.vim"}  -- code-minimap (類似vscode右方的程式碼導覽行) :Minimap, MinimapClose
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

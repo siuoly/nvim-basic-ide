@@ -3,6 +3,11 @@ if not status_ok then
 	return
 end
 
+local api = require('Comment.api')
+vim.keymap.set('n', ',,', api.toggle.linewise.current)
+vim.keymap.set('n', ',', "<Plug>(comment_toggle_linewise)")
+vim.keymap.set('x', ',', "<Plug>(comment_toggle_linewise_visual)")
+
 comment.setup({
 	pre_hook = function(ctx)
 		-- Only calculate commentstring for tsx filetypes

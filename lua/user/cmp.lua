@@ -8,7 +8,8 @@ if not snip_status_ok then
 	return
 end
 
-require("luasnip/loaders/from_vscode").lazy_load()
+require("luasnip.loaders.from_vscode").lazy_load()
+require("luasnip.loaders.from_vscode").lazy_load{paths={"./mysnip"}}
 
 local check_backspace = function()
 	local col = vim.fn.col(".") - 1
@@ -16,31 +17,31 @@ local check_backspace = function()
 end
 
 local kind_icons = {
-	Text = "",
-	Method = "",
-	Function = "",
-	Constructor = "",
-	Field = "",
-	Variable = "",
-	Class = "",
-	Interface = "",
-	Module = "",
-	Property = "",
-	Unit = "",
-	Value = "",
-	Enum = "",
-	Keyword = "",
-	Snippet = "",
-	Color = "",
-	File = "",
-	Reference = "",
-	Folder = "",
-	EnumMember = "",
-	Constant = "",
-	Struct = "",
-	Event = "",
-	Operator = "",
-	TypeParameter = "",
+	Text = " Text",
+	Method = " Meth",
+	Function = " Func",
+	Constructor = " Cons",
+	Field = " Fiel",
+	Variable = " Var",
+	Class = " Clas",
+	Interface = " Infa",
+	Module = " Modu",
+	Property = " Prop",
+	Unit = " Unit",
+	Value = " Valu",
+	Enum = " Enum",
+	Keyword = " Key",
+	Snippet = " Snip",
+	Color = " Colo",
+	File = " File",
+	Reference = " Ref",
+	Folder = " Fold",
+	EnumMember = " EnMe",
+	Constant = " Cont",
+	Struct = " Stru",
+	Event = " Even",
+	Operator = " Oper",
+	TypeParameter = " Type",
 }
 
 cmp.setup({
@@ -75,10 +76,7 @@ cmp.setup({
 			else
 				fallback()
 			end
-		end, {
-			"i",
-			"s",
-		}),
+		end, { "i", "s", }),
 		["<S-Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item()
@@ -87,31 +85,28 @@ cmp.setup({
 			else
 				fallback()
 			end
-		end, {
-			"i",
-			"s",
-		}),
+		end, { "i", "s", }),
 	}),
 	formatting = {
-		fields = { "kind", "abbr", "menu" },
+		-- fields = { "kind", "abbr", "menu" },
 		format = function(entry, vim_item)
 			vim_item.kind = kind_icons[vim_item.kind]
 			vim_item.menu = ({
-				nvim_lsp = "",
+				nvim_lsp = "LSP",
 				nvim_lua = "",
-				luasnip = "",
-				buffer = "",
-				path = "",
-				emoji = "",
+				luasnip = "SNIP",
+				buffer = "BUF",
+				path = "PATH",
+				emoji = "EMOJI",
 			})[entry.source.name]
 			return vim_item
 		end,
 	},
 	sources = {
-		{ name = "luasnip" },
 		{ name = "nvim_lsp" },
-		{ name = "nvim_lua" },
 		{ name = "buffer" },
+		{ name = "luasnip" },
+		{ name = "nvim_lua" },
 		{ name = "path" },
     { name = 'nvim_lsp_signature_help' },
 	},
