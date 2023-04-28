@@ -23,6 +23,8 @@ keymap("n", "\\s", ":luafile %<cr>", opts)
 keymap("n", "<home>", "^", opts)
 keymap("n", "t", "@",opts)
 keymap("n", "ge", "<cmd>cclose<CR>", opts) -- using for close refrence qflist opened by <gr>
+keymap("c", "SS", "%s/")
+keymap("c", "GG", "%g/")
 
 -- Normal --
 -- Better window navigation

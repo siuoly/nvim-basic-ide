@@ -58,3 +58,10 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 	end,
 })
 
+vim.api.nvim_create_autocmd({"BufRead","BufNewFile"}, {
+  pattern = {"*.ipy"},
+  callback = function()
+    vim.bo.filetype="ipy"
+    vim.bo.filetype="python"
+  end
+})

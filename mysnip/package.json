@@ -1,0 +1,16 @@
+{
+	"name": "nivm-edtor-snip",
+	"contributes": {
+		"snippets": [
+			{
+				"language": [ "all" ],
+				"path": "./all.json"
+			},
+      {
+        "language": ["python"],
+        "path": "./python.json"
+      }
+		]
+	}
+}
+
