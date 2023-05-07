@@ -8,7 +8,7 @@ require "user.cmp"
 require "user.telescope"
 require "user.gitsigns"
 require "user.treesitter"
-require "user.treesitter-textobjects"
+-- require "user.treesitter-textobjects"
 require "user.autopairs"
 require "user.comment"
 require "user.nvim-tree"
@@ -21,6 +21,9 @@ require "user.indentline"
 -- require "user.alpha"
 require "user.lsp"
 require "user.dap"
+
+
+
 
 
 -- 語法教學
