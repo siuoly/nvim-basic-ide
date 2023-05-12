@@ -36,7 +36,7 @@ keymap( "n", "<space>r", ipython.run_file,{} )
 keymap( "n", "<space>c", ipython.run_class,{} )
 keymap( "n", "<space>f", ipython.run_function,{} )
 keymap( "n", "<space><space>", ipython.run_block,{} )
-keymap( "n", "<space>e", ipython.run_line,{} )
+keymap( "n", "<space>q", ipython.run_line,{} )
 
 
 vim.api.nvim_create_user_command("Ipy", "TermExec cmd='ipython' direction=vertical" ,{})

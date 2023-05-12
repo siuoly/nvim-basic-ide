@@ -9,8 +9,8 @@
   "import_matplot":{
     "prefix": "implt",
     "body":[
-      "import matplotlib as plt"
+      "import matplotlib.pyplot as plt"
     ],
-    "description": "import matplotlib as plt"
+    "description": "import matplotlib.pyplot as plt"
   }
 }
