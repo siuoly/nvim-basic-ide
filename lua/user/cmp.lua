@@ -122,3 +122,7 @@ cmp.setup({
     ghost_text = true,
   }
 })
+
+vim.api.nvim_command[[
+autocmd FileType text lua require'cmp'.setup.buffer { completion = { autocomplete = false } }
+]]
