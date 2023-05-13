@@ -21,6 +21,7 @@ keymap("i", "kj" , "<esc>", opts)
 keymap("n", "\\k", ":e ~/.config/nvim/lua/user/keymaps.lua<cr>", opts)
 keymap("n", "\\s", ":luafile %<cr>", opts)
 keymap("n", "<home>", "^", opts)
+keymap("n", "<space>n", ":set rnu!<cr>", opts)
 keymap("n", "t", "@",opts)
 keymap("n", "ge", "<cmd>cclose<CR>", opts) -- using for close refrence qflist opened by <gr>
 keymap("c", "SS", "%s/")
@@ -53,7 +54,7 @@ keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
 keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
 
 -- Better paste
-keymap("v", "p", '"_dP', opts)
+-- keymap("v", "p", '"_dP', opts)
 
 -- Insert --
 -- Press jk fast to enter
@@ -69,15 +70,15 @@ keymap("v", ">", ">gv", opts)
 -- NvimTree
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
--- Telescope
-keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
-keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
-keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
-keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
-keymap("n", "<leader>fk", ":Telescope keymaps<CR>", opts)
-keymap("n", "<leader>fo", ":Telescope oldfiles<CR>", opts)
-keymap("n", "<leader>fh", ":Telescope help_tags<CR>", opts)
-keymap("n", "<leader>fm", [[:lua require "telescope.builtin".treesitter({default_text="function"})]], opts)
+-- -- Telescope
+-- keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
+-- keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
+-- keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
+-- keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
+-- keymap("n", "<leader>fk", ":Telescope keymaps<CR>", opts)
+-- keymap("n", "<leader>fo", ":Telescope oldfiles<CR>", opts)
+-- keymap("n", "<leader>fh", ":Telescope help_tags<CR>", opts)
+-- keymap("n", "<leader>fm", [[:lua require "telescope.builtin".treesitter({default_text="function"})]], opts)
 -- Git
 keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
 

@@ -118,7 +118,11 @@ cmp.setup({
 		completion = cmp.config.window.bordered(),
 		documentation = cmp.config.window.bordered(),
 	},
-	experimental = {
-		ghost_text = true,
-	},
+  experimental = {
+    ghost_text = true,
+  }
 })
+
+vim.api.nvim_command[[
+autocmd FileType text lua require'cmp'.setup.buffer { completion = { autocomplete = false } }
+]]
