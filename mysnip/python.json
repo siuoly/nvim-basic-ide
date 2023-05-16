@@ -12,5 +12,20 @@
       "import matplotlib.pyplot as plt"
     ],
     "description": "import matplotlib.pyplot as plt"
+  },
+  "import_pandas":{
+    "prefix": "impd",
+    "body":[
+      "import pandas as pd"
+    ],
+    "description": "import pandas as pd"
+  },
+  "import_librosa":{
+    "prefix": "imra",
+    "body":[
+      "import librosa as ra"
+    ],
+    "description": "import librosa as ra"
   }
+
 }
