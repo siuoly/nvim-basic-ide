@@ -11,7 +11,7 @@ ipython.run = function()
   vim.cmd([[ 
   call feedkeys("\<c-w>\<c-w>\<c-\>\<c-n>",'n')  
   call feedkeys("\"\"pi\<cr>\<cr>",'n')          
-  call feedkeys("\<c-\>\<c-n>\<c-w>\<c-w>",'n')  
+  call feedkeys("\<c-\>\<c-n>\<c-w>\<c-p>",'n')  
   ]])
 -- go to terminal window" paste register" , key enter go back"
 end
@@ -32,10 +32,12 @@ ipython.run_block = function() ipython.copy_run("yip") end
 ipython.run_line = function() ipython.copy_run("yy") end
 ipython.run_word = function() ipython.send("<cword>") end
 ipython.run_WORD = function() ipython.send("<cWORD>") end
+ipython.run_select = function() ipython.copy_run("y") end
 keymap( "n", "<space>r", ipython.run_file,{} )
 keymap( "n", "<space>c", ipython.run_class,{} )
 keymap( "n", "<space>f", ipython.run_function,{} )
 keymap( "n", "<space><space>", ipython.run_block,{} )
+keymap( "x", "<space><space>", ipython.run_select,{} )
 keymap( "n", "<space>q", ipython.run_line,{} )
 
 
@@ -66,7 +68,7 @@ pdb.command= function(cmd)
     pdb.send(cmd)
   end
 end
-
+-- ipython --pdb srcipy.py automaticall stop at error position
 vim.api.nvim_create_user_command("Pdb", function(opt) pdb.command(opt.args) end ,{nargs="?"})
 
 pdb.n = function() pdb.send("n") end
@@ -96,7 +98,7 @@ keymap("n", "<a-i>",pdb.d ,{})
 
 keymap("n", "<a-h>",pdb.c_line ,{})
 keymap("n", "<a-j>",pdb.n ,{})
-keymap("n", "<a-k>",pdb.j ,{})
+keymap("n", "<a-k>",pdb.j_line ,{})
 keymap("n", "<a-n>",pdb.s ,{})
 
 keymap("n", "<a-l>",pdb.l ,{})

@@ -13,7 +13,8 @@ vim.g.mapleader = " "
 --   visual_block_mode = "x",
 --   term_mode = "t",
 --   command_mode = "c",
--- Author: louis lee , setting -------
+
+----------------------- Author: louis lee , setting -------
 -- keymap("n", "<cr>" , ":", {})
 vim.cmd(" nnoremap <expr> <cr> &filetype=='qf'? '<cr>':':'")
 keymap("c", "qq", "q!<cr>", opts)
@@ -26,6 +27,13 @@ keymap("n", "t", "@",opts)
 keymap("n", "ge", "<cmd>cclose<CR>", opts) -- using for close refrence qflist opened by <gr>
 keymap("c", "SS", "%s/")
 keymap("c", "GG", "%g/")
+
+--
+keymap("x", "<m-J>", ":m '>+1<cr>gv", opts)
+keymap("x", "<m-K>", ":m '<-2<cr>gv", opts)
+keymap("n", "<m-J>", ":m .+1<cr>", opts)
+keymap("n", "<m-K>", ":m .-2<cr>", opts)
+
 
 -- Normal --
 -- Better window navigation
