@@ -89,14 +89,12 @@ return packer.startup(function(use)
   use { "nvim-telescope/telescope.nvim", commit = "76ea9a898d3307244dce3573392dcf2cc38f340f" }
 
   -- Treesitter
-  use {
-    "nvim-treesitter/nvim-treesitter"
-  }
-  use{
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    after = "nvim-treesitter",
-    requires = "nvim-treesitter/nvim-treesitter",
-  }
+  use { "nvim-treesitter/nvim-treesitter", run = ':TSUpdate'}
+  -- use{
+  --   "nvim-treesitter/nvim-treesitter-textobjects",
+  --   after = "nvim-treesitter",
+  --   requires = "nvim-treesitter/nvim-treesitter",
+  -- }
 
   -- Git
   use { "lewis6991/gitsigns.nvim", commit = "f98c85e7c3d65a51f45863a34feb4849c82f240f" }
@@ -107,6 +105,15 @@ return packer.startup(function(use)
   use { "ravenxrz/DAPInstall.nvim", commit = "8798b4c36d33723e7bba6ed6e2c202f84bb300de" }
 
   -- Custom plugins
+  use {'ethanholz/nvim-lastplace',
+    config = function ()
+      require("nvim-lastplace").setup{
+        lastplace_ignore_buftype = {"quickfix", "nofile", "help"},
+        lastplace_ignore_filetype = {"gitcommit", "gitrebase", "svn", "hgcommit"},
+        lastplace_open_folds = true
+      }
+    end
+  }
   use {"jpalardy/vim-slime",
   config=function()
       vim.cmd[[let g:slime_target = "neovim""]]
