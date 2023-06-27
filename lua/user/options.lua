@@ -41,3 +41,15 @@ vim.opt.whichwrap:append("<,>,[,],h,l")         -- keys allowed to move to the p
 vim.opt.iskeyword:append("-")                   -- treats words with `-` as single words
 vim.opt.formatoptions:remove({ "c", "r", "o" }) -- This is a sequence of letters which describes how automatic formatting is to be done
 vim.opt.linebreak = true
+
+vim.opt.exrc = true  -- deprecated...
+vim.api.nvim_create_autocmd("VimEnter",{
+  callback = function ()
+    local vimrc_list = {"ml/myADS" }
+    for _,dir in pairs(vimrc_list) do
+      if string.match( vim.loop.cwd(), dir) then
+        vim.cmd("source .vimrc")
+      end
+    end
+  end
+})
