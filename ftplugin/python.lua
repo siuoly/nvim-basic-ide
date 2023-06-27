@@ -88,8 +88,8 @@ pdb.j_line = function() pdb.send("j " .. vim.api.nvim_win_get_cursor(0)[1]) end
 pdb.sticky = function() pdb.send("sticky") end
 pdb.exit = function() pdb.send("exit") end
 pdb.restart = function() pdb.send("exit") end
-pdb.word = function() pdb.send(vim.fn.expand("<cword>")) end
-pdb.WORD = function() pdb.send(vim.fn.expand("<cWORD>")) end
+pdb.word = function() pdb.send("<cword>") end
+pdb.WORD = function() pdb.send("<cWORD>") end
 
 
 keymap("n", "<a-b>",pdb.b_line,{})
