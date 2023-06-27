@@ -5,10 +5,10 @@ return {
       analysis = {
         typeCheckingMode = "off",
         -- autoSearchPaths = true,
-        -- diagnosticMode = "workspace",
-        -- useLibraryCodeForTypes = true
+        diagnosticMode = "openFilesOnly", -- "workspace",
+        useLibraryCodeForTypes = false
       },
-      pythonPath = "python",
+      pythonPath = "python3",
     },
   },
   filetypes = {"python"}
