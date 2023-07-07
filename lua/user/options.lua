@@ -45,10 +45,12 @@ vim.opt.linebreak = true
 vim.opt.exrc = true  -- deprecated...
 vim.api.nvim_create_autocmd("VimEnter",{
   callback = function ()
-    local vimrc_list = {"ml/myADS" }
-    for _,dir in pairs(vimrc_list) do
+    local project_dir = {
+      "/home/siuoly/ml/myADS",
+    }
+    for _,dir in pairs(project_dir) do
       if string.match( vim.loop.cwd(), dir) then
-        vim.cmd("source .vimrc")
+        vim.cmd("source " .. dir .. "/.vimrc")
       end
     end
   end
