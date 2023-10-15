@@ -3,26 +3,25 @@ if not status_ok then
   return
 end
 
-local actions = require "telescope.actions"
-
-telescope.setup {
-  defaults = {
-
-    prompt_prefix = " ",
-    selection_caret = " ",
-    path_display = { "smart" },
-    file_ignore_patterns = { ".git/", "node_modules" },
-
-    mappings = {
-      i = {
-        ["<Down>"] = actions.cycle_history_next,
-        ["<Up>"] = actions.cycle_history_prev,
-        ["<C-j>"] = actions.move_selection_next,
-        ["<C-k>"] = actions.move_selection_previous,
-      },
-    },
+telescope.setup{
+  defaults={
+    layout_strategy = 'horizontal',
+    layout_config = { height = 0.95 },
   },
 }
+
+-- local actions = require "telescope.actions"
+--
+-- telescope.setup {
+--   defaults = {
+--
+--     prompt_prefix = " ",
+--     selection_caret = " ",
+--     path_display = { "smart" },
+--     file_ignore_patterns = { ".git/", "node_modules" },
+--     },
+--   },
+-- }
 
 vim.keymap.set("n", "<leader>sp", ":Telescope projects<CR>",{ desc = '[S]earch [P]rojects' })
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp_Tags' })
@@ -36,6 +35,9 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').lsp_document_symb
 vim.keymap.set('n', '<leader>/', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader>b', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 
+vim.keymap.set('c', '<c-r>', "Telescope command_history<cr>", { desc = 'command history like fzf' })
+vim.keymap.set('c', '<c-q>', "<c-r>", { desc = 'command history like fzf' })
+
 vim.keymap.set('n', '<leader>?', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
@@ -44,6 +46,3 @@ vim.keymap.set('n', '<leader>?', function()
   })
 end, { desc = '[/] Fuzzily search in current buffer' })
 
--- luasnip
-telescope.load_extension('luasnip')
-vim.keymap.set('n', '<leader>ss', require'telescope'.extensions.luasnip.luasnip, { desc = '[S]earch [S]nip' })
