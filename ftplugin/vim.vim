@@ -1,1 +1,1 @@
-nnoremap <buffer> <f5> <Cmd>source %<cr>
+nnoremap <buffer> <f5> <Cmd>w <bar> source %<cr>

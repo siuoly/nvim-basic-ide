@@ -26,6 +26,13 @@
       "import librosa as ra"
     ],
     "description": "import librosa as ra"
+  },
+  "import_numpy":{
+    "prefix": "imnp",
+    "body":[
+      "import numpy as np"
+    ],
+    "description": "import numpy as np"
   }
 
 }
