@@ -4,21 +4,21 @@ if not status_ok then
 end
 
 toggleterm.setup({
-	size = 104,
+	-- size = 104,
   open_mapping = "<f7>",
-	-- open_mapping = [[<c-\>]],
-	hide_numbers = true,
-	shade_terminals = true,
-	shading_factor = 2,
-	start_in_insert = true,
-	insert_mappings = true,
-	persist_size = true,
-	direction = "float", --"vertical", 
-	close_on_exit = true,
-	shell = vim.o.shell,
-	float_opts = {
-		border = "curved",
-	},
+	-- -- open_mapping = [[<c-\>]],
+	-- hide_numbers = false,
+	-- shade_terminals = true,
+	-- shading_factor = 2,
+	-- start_in_insert = true,
+	-- insert_mappings = true,
+	-- persist_size = true,
+	-- direction = "float", --"vertical", 
+	-- close_on_exit = true,
+	-- shell = vim.o.shell,
+	-- float_opts = {
+	-- 	border = "curved",
+	-- },
 })
 
 function _G.set_terminal_keymaps()
@@ -33,12 +33,11 @@ function _G.set_terminal_keymaps()
 end
 
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
-vim.api.nvim_create_user_command("ToggleVertial", "ToggleTerm direction=vertical" ,{})
 
 local Terminal = require("toggleterm.terminal").Terminal
-local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
-
-function _LAZYGIT_TOGGLE()
-	lazygit:toggle()
+local zsh = Terminal:new({ direction="float"})
+function _zsh_toggle()
+  zsh:toggle()
 end
-
+vim.api.nvim_set_keymap("n", "<f8>", "<cmd>lua _zsh_toggle()<CR>", {noremap = true, silent = true})
+vim.api.nvim_create_user_command("Pdb", function(opt) pdb.command(opt.args) end ,{nargs="?"})
