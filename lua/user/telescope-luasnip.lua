@@ -8,6 +8,5 @@ end
 --      :luafile telescope.load_extension('luasnip')
 
 -- luasnip
-
 telescope.load_extension('luasnip')
 vim.keymap.set('n', '<leader>ss', require'telescope'.extensions.luasnip.luasnip, { desc = '[S]earch [S]nip' })

@@ -35,7 +35,7 @@ end
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
 local Terminal = require("toggleterm.terminal").Terminal
-local zsh = Terminal:new({ direction="float"})
+local zsh = Terminal:new({ direction="float",hidden=true})
 function _zsh_toggle()
   zsh:toggle()
 end

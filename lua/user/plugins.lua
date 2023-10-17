@@ -121,12 +121,12 @@ return packer.startup(function(use)
   }
   use {"hanschen/vim-ipython-cell"}
   use {"michaeljsmith/vim-indent-object"} -- indent object
-  -- use {
-  --   "benfowler/telescope-luasnip.nvim",
-  --   -- module = "telescope._extensions.luasnip",  -- if you wish to lazy-load
-  --   after = "telescope.nvim",
-  --   requires = "saadparwaiz1/cmp_luasnip",
-  -- }
+  use {
+    "benfowler/telescope-luasnip.nvim",
+    -- module = "telescope._extensions.luasnip",  -- if you wish to lazy-load
+    after = "telescope.nvim",
+    requires = "saadparwaiz1/cmp_luasnip",
+  }
   use{"petertriho/nvim-scrollbar",commit="f85b29805cf917f9b1d5ff0c9a52c5b1bdca5943",
     config = function()
     require("scrollbar").setup()
