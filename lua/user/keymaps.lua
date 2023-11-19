@@ -31,6 +31,9 @@ keymap("c", "GG", "%g/")
 --
 keymap("x", "<m-J>", ":m '>+1<cr>gv", opts)
 keymap("x", "<m-K>", ":m '<-2<cr>gv", opts)
+keymap("x", "<tab>", ">",{noremap=false})
+vim.cmd("xmap <tab> >")
+vim.cmd("xmap <S-tab> <")
 keymap("n", "<m-J>", ":m .+1<cr>", opts)
 keymap("n", "<m-K>", ":m .-2<cr>", opts)
 
