@@ -150,7 +150,8 @@ return packer.startup(function(use)
   "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim",
   config = function() require("todo-comments").setup { } end
   }
-  use{ "tpope/vim-obsession" } -- :Obss call
+  use {'ojroques/nvim-osc52'}
+  -- use{ "tpope/vim-obsession" } -- :Obss call
   -- INFO: https://www.bilibili.com/read/cv22495061?from=articleDetail 這裡列出很多可用清單/fun
   -- TODO: try https://github.com/folke/noice.nvim    漂亮展示行為
   -- https://github.com/simrat39/symbols-outline.nvim  展示函數列表，可改名
