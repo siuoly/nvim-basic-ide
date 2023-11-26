@@ -151,6 +151,7 @@ return packer.startup(function(use)
   config = function() require("todo-comments").setup { } end
   }
   use {'ojroques/nvim-osc52'}
+  use { 'rlue/vim-barbaric' }
   -- use{ "tpope/vim-obsession" } -- :Obss call
   -- INFO: https://www.bilibili.com/read/cv22495061?from=articleDetail 這裡列出很多可用清單/fun
   -- TODO: try https://github.com/folke/noice.nvim    漂亮展示行為
