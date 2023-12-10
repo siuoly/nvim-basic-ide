@@ -121,17 +121,8 @@ return packer.startup(function(use)
   }
   use {"hanschen/vim-ipython-cell"}
   use {"michaeljsmith/vim-indent-object"} -- indent object
-  use {
-    "benfowler/telescope-luasnip.nvim",
-    -- module = "telescope._extensions.luasnip",  -- if you wish to lazy-load
-    after = "telescope.nvim",
-    requires = "saadparwaiz1/cmp_luasnip",
-  }
-  use{"petertriho/nvim-scrollbar",commit="f85b29805cf917f9b1d5ff0c9a52c5b1bdca5943",
-    config = function()
-    require("scrollbar").setup()
-    end
-  }
+  use { "benfowler/telescope-luasnip.nvim", after = "telescope.nvim", requires = "saadparwaiz1/cmp_luasnip" }
+  use{"petertriho/nvim-scrollbar",commit="f85b29805cf917f9b1d5ff0c9a52c5b1bdca5943", config = function() require("scrollbar").setup() end }
   use { "kylechui/nvim-surround",commit = "e6047128e57c1aff1566fb9f627521d2887fc77a",
     config = function()
       require("nvim-surround").setup({ })
@@ -152,12 +143,21 @@ return packer.startup(function(use)
   }
   use {'ojroques/nvim-osc52'}
   use { 'rlue/vim-barbaric' }
+  use { 'junegunn/vim-easy-align',
+    config = function()
+    local keymap = vim.keymap.set
+    local opts = { silent = true }
+    keymap("x", "ga", "<Plug>(EasyAlign)", opts)
+    keymap("n", "ga", "<Plug>(EasyAlign)", opts)
+  end
+  }
+  --
+  --
   -- use{ "tpope/vim-obsession" } -- :Obss call
   -- INFO: https://www.bilibili.com/read/cv22495061?from=articleDetail 這裡列出很多可用清單/fun
   -- TODO: try https://github.com/folke/noice.nvim    漂亮展示行為
   -- https://github.com/simrat39/symbols-outline.nvim  展示函數列表，可改名
   -- https://github.com/folke/trouble.nvim   列出diagnostic列表
-
   -- use {"wfxr/minimap.vim"}  -- code-minimap (類似vscode右方的程式碼導覽行) :Minimap, MinimapClose
 
   -- Automatically set up your configuration after cloning packer.nvim
