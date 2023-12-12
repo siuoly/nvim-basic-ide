@@ -151,6 +151,21 @@ return packer.startup(function(use)
     keymap("n", "ga", "<Plug>(EasyAlign)", opts)
   end
   }
+    use { 'voldikss/vim-translator',
+    config = function()
+      vim.g.translator_target_lang = "zh-TW"
+      vim.cmd[[
+      nmap <silent> <Leader>t <Plug>Translate
+      vmap <silent> <Leader>t <Plug>TranslateV
+      nmap <silent> <Leader>w <Plug>TranslateW
+      vmap <silent> <Leader>w <Plug>TranslateWV
+      nmap <silent> <Leader>r <Plug>TranslateR
+      vmap <silent> <Leader>r <Plug>TranslateRV
+      nmap <silent> <Leader>x <Plug>TranslateX
+    ]]
+
+    end
+  }
   --
   --
   -- use{ "tpope/vim-obsession" } -- :Obss call
