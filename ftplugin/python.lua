@@ -4,7 +4,7 @@ keymap("n", "<f5>" , [[<Cmd>w|exe  v:count1 . "TermExec cmd='python3 %:p'"<cr>]]
 
 
 ------------- Ipython Setting --------------------------------------------
-ipython = {}
+local ipython = {}
 
 
 ipython.run = function()
@@ -26,11 +26,13 @@ ipython.send = function(cmd)
   vim.fn.setreg("",sendword)
   ipython.run()
 end
+-- add newline for ipython block code new line
+local reg_add_newline = function() vim.fn.setreg( "", vim.fn.getreg("").."\n" ) end
 ipython.run_class = function() ipython.copy_run("yac") end
 ipython.run_function = function() ipython.copy_run("yaf") end
-ipython.run_block = function() ipython.copy_run("yip") end
+ipython.run_block = function() ipython.copy_run("yip") reg_add_newline() end
 ipython.run_line = function() ipython.copy_run("yy") end
-ipython.run_select = function() ipython.copy_run("y") end
+ipython.run_select = function() ipython.copy_run("y") reg_add_newline() end
 ipython.run_file = function() ipython.send("\\%run %") end
 ipython.run_word = function() ipython.send("<cword>") end
 ipython.run_WORD = function() ipython.send("<cWORD>") end
@@ -49,7 +51,7 @@ ipython.clear= function() ipython.send("clear") end
 ipython.exit= function() ipython.send("exit") end
 
 ------------- debugger setting -------------------------------------------
-pdb={}
+local pdb={}
 pdb.file_point = function()
   local line=vim.api.nvim_win_get_cursor(0)[1]
   local file =vim.api.nvim_buf_get_name(0)
