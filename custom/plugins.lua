@@ -49,6 +49,21 @@ local plugins = {
   {
     "rlue/vim-barbaric",
     event = "InsertEnter",
+  },
+  {
+    "michaeljsmith/vim-indent-object",
+    keys = {"vii","vai"}
+  }, -- indent object
+  {
+    "kylechui/nvim-surround",
+    event = "VeryLazy",
+    config = function()
+        require("nvim-surround").setup({
+            -- Configuration here, or leave empty to use defaults
+        })
+    end
+  },
+  {
     "hrsh7th/nvim-cmp",
     opts = {
       experimental = {
