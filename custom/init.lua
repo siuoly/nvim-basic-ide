@@ -1,5 +1,7 @@
--- local autocmd = vim.api.nvim_create_autocmd
+local autocmd = vim.api.nvim_create_autocmd
 vim.g.python3_host_prog = "/home/siuoly/.pyenv/versions/default/bin/python"
+vim.o.wrap = false
+vim.o.pumheight = 10
 
 -- require("custom.handler").setup()  -- lsp-keymap, diagnostic-symbol, 
 

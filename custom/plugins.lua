@@ -49,6 +49,17 @@ local plugins = {
   {
     "rlue/vim-barbaric",
     event = "InsertEnter",
+    "hrsh7th/nvim-cmp",
+    opts = {
+      experimental = {
+        ghost_text = true,
+      },
+      window = {
+        completion = {
+          scrollbar = true,
+        },
+      },
+    }
   }
 
   -- To make a plugin not be loaded
