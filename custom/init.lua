@@ -8,3 +8,7 @@ vim.g.python3_host_prog = "/home/siuoly/.pyenv/versions/default/bin/python"
 --   pattern = "*",
 --   command = "tabdo wincmd =",
 -- })
+autocmd("BufReadPost", {
+  pattern = "*",
+  command = "silent! loadview",
+})
