@@ -1,6 +1,18 @@
 ---@type MappingsTable
 local M = {}
 
+local function dict_search()
+  -- sdcv:dictionary command  grep:color output command
+  vim.api.nvim_command([[terminal sdcv <cword>|grep --color=always -zP -e "-->.*\n"]])
+  vim.cmd("tab split")
+  vim.keymap.set("n","q",":bd!<cr>",{buffer=true})
+end
+
+local function dict_pronounce()
+  local nvterm = require("nvterm.terminal")
+  nvterm.send( "trans -sp -b ".. vim.fn.expand("<cword>"), "float")
+end
+
 
 
 M.general = {
@@ -8,7 +20,10 @@ M.general = {
     ["<cr>"] = { [[ &ft=="qf" ? "<cr>" : ":"]], "enter command mode", opts = { nowait = true,expr=true } },
     ["Q"] = { function () require("nvchad.tabufline").close_buffer() end, "Close buffer", opts = { nowait = true } },
     ["<home>"] = {"^"},
-    ["<leader>e"] = {"<Cmd>NvimTreeToggle<cr>", "toggle nvimtree"}
+    ["<leader>e"] = {"<Cmd>NvimTreeToggle<cr>", "toggle nvimtree"},
+    -- ["gs"] = {"<Cmd>!sdcv <cword><cr>","sdcv dictionary search keyword"}
+    ["gs"] = {dict_search,"sdcv dictionary search keyword"},
+    ["gS"] = {dict_pronounce,"Pronounce the word under cursor"}
   },
   v = {
     [">"] = { ">gv", "indent"},
@@ -16,13 +31,13 @@ M.general = {
   c = {
     ["qq"] = {"q!<cr>", "forcely close buffer" },
     ["SS"] = {  "%s/" },
-    ["GG"] = {  "%g/" }
+    ["GG"] = {  "%g/" },
+    ["ww"] = {  "w|mkview" }
   },
   i = {
     ["kj"] = {"<esc>", "exit"},
   }
 }
-
 M.disabled = {
   t = { -- terminal
     ["<A-i>"] = "", --Terminal
