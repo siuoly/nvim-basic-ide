@@ -122,7 +122,8 @@ M.nvterm = {
 M.lsp = {
   n = {
     ["gr"] = {"<Cmd>Telescope lsp_references<cr>", "LSP refreence"},
-    ["gd"] = {"<Cmd>Telescope lsp_definitions<cr>", "LSP definitions"}
+    ["gd"] = {"<Cmd>Telescope lsp_definitions<cr>", "LSP definitions"},
+    ["gD"] = {"<Cmd>tab split|Telescope lsp_definitions<cr>", "LSP definitions"}
   }
 }
 
