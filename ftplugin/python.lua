@@ -1,8 +1,24 @@
 local keymap = vim.keymap.set
 local opts = { silent = true ,buffer=true}
-keymap("n", "<f5>" , [[<Cmd>w|exe  v:count1 . "TermExec cmd='python3 %:p'"<cr>]], {buffer=true})
 
-
+local function map_exit(exit_key) keymap("n",exit_key,"<Cmd>bd<cr>",opts) end
+local function toggle_winsize()
+  if vim.api.nvim_win_get_height(0) < 15 then
+    print("maxize")
+    vim.api.nvim_win_set_height(0, 100 ) -- maxize window
+  else
+    print("small")
+    vim.api.nvim_win_set_height(0,10) -- small window window
+  end
+end
+local function run_python_file()
+  vim.cmd([[w|new|res 10]])
+  vim.cmd("terminal python3 #:p")
+  map_exit("q")
+  map_exit("<f5>")
+  keymap("n","<f6>",toggle_winsize,opts)
+end
+keymap("n", "<f5>" , run_python_file, {buffer=true})
 ------------- Ipython Setting --------------------------------------------
 local ipython = {}
 
