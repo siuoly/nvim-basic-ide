@@ -23,7 +23,7 @@ vim.api.nvim_create_autocmd(
       -- local path = vim.fn.fnamemodify(vim.fs.normalize(vim.api.nvim_buf_get_name(0)),":p")
       local path = vim.fn.expand("%:p")
       path = vim.o.viewdir .. path:gsub(vim.env.HOME,"~"):gsub("/","=+").."="
-      if  vim.fn.filereadable(path) then
+      if vim.fn.filereadable(path)==1 then
         vim.cmd.mkview()
       end
     end,
