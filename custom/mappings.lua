@@ -126,6 +126,11 @@ M.lsp = {
     ["gD"] = {"<Cmd>tab split|Telescope lsp_definitions<cr>", "LSP definitions"}
   }
 }
+M.telescope = {
+  n = {
+    ["<C-S-O>"] = {"<cmd> Telescope oldfiles <CR>","Find oldfiles" }
+  }
+}
 
 -- more keybinds!
 
