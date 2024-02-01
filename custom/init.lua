@@ -11,11 +11,16 @@ vim.api.nvim_set_hl( 0, "CurSearch",{ fg="#353b45",bg="#b2800b"})
 --   pattern = "*",
 --   command = "tabdo wincmd =",
 -- })
+
+-- custom command
+vim.api.nvim_create_user_command("Fold", "set foldmethod=indent foldlevelstart=1 foldnestmax=3", {})
+
+-- custom autocmd
 autocmd("BufReadPost", {
   pattern = "*",
   command = "silent! loadview",
 })
-vim.api.nvim_create_autocmd(
+autocmd(
   "BufWritePost",
   {
     pattern="*",
