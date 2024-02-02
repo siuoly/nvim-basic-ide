@@ -16,10 +16,8 @@ vim.api.nvim_set_hl( 0, "CurSearch",{ fg="#353b45",bg="#b2800b"})
 vim.api.nvim_create_user_command("Fold", "set foldmethod=indent foldlevelstart=1 foldnestmax=3", {})
 
 -- custom autocmd
-autocmd("BufReadPost", {
-  pattern = "*",
-  command = "silent! loadview",
-})
+autocmd("BufReadPost", { pattern = "*", command = "silent! loadview", })
+autocmd("TermOpen", {pattern="*", command="set nonumber"})
 autocmd(
   "BufWritePost",
   {
