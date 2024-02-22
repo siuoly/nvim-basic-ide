@@ -75,6 +75,10 @@ local plugins = {
         },
       },
     }
+  },
+  {
+    "junegunn/goyo.vim",
+    cmd = "Goyo"
   }
 
   -- To make a plugin not be loaded
