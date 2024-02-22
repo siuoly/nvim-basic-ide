@@ -87,10 +87,10 @@ M.nvterm = {
       "Toggle vertical term",
     },
     ["<esc><esc>"] = {[[<C-\><C-n>]], "terminal mode to normal mode"},
-    ["<C-S-h>"] = { "<Cmd>wincmd h<cr>","terminal mode:move left"},
-    ["<C-S-j>"] = { "<Cmd>wincmd j<cr>","terminal mode:move down"},
-    ["<C-S-k>"] = { "<Cmd>wincmd k<cr>","terminal mode:move up"},
-    ["<C-S-l>"] = { "<Cmd>wincmd l<cr>","terminal mode:move right"},
+    ["<C-h>"] = { "<Cmd>wincmd h<cr>","terminal mode:move left"},
+    ["<C-j>"] = { "<Cmd>wincmd j<cr>","terminal mode:move down"},
+    ["<C-k>"] = { "<Cmd>wincmd k<cr>","terminal mode:move up"},
+    ["<C-l>"] = { "<Cmd>wincmd l<cr>","terminal mode:move right"},
   },
 
   n = {
