@@ -18,6 +18,11 @@ local function run_python_file()
   map_exit("<f5>")
   keymap("n","<f6>",toggle_winsize,opts)
 end
+local function copy_breakpoint_fileline()
+  local breakpoint = vim.fn.expand('%')..":"..vim.fn.line('.')
+  vim.fn.setreg('+',breakpoint)
+end
+keymap("n", "yb", copy_breakpoint_fileline,{buffer=true})
 keymap("n", "<f5>" , run_python_file, {buffer=true})
 ------------- Ipython Setting --------------------------------------------
 local ipython = {}
