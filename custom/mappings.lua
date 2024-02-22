@@ -17,13 +17,22 @@ end
 
 M.general = {
   n = {
-    ["<cr>"] = { [[ &ft=="qf" ? "<cr>" : ":"]], "enter command mode", opts = { nowait = true,expr=true } },
+    ["<cr>"] = {
+      function ()
+        if vim.o.buftype == "nofile" or vim.o.ft =="qf" then
+          return "<cr>"
+        else
+          return ":"
+        end
+      end
+      , opts = { nowait = true,expr=true } },
     ["Q"] = { function () require("nvchad.tabufline").close_buffer() end, "Close buffer", opts = { nowait = true } },
     ["<home>"] = {"^"},
     ["<leader>e"] = {"<Cmd>NvimTreeToggle<cr>", "toggle nvimtree"},
     -- ["gs"] = {"<Cmd>!sdcv <cword><cr>","sdcv dictionary search keyword"}
     ["gs"] = {dict_search,"sdcv dictionary search keyword"},
-    ["gS"] = {dict_pronounce,"Pronounce the word under cursor"}
+    ["gS"] = {dict_pronounce,"Pronounce the word under cursor"},
+    ["q"] = { [[ &bt=="nofile"||&bt=="quickfix" ? ":q<cr>":"q" ]], "<q> remap", opts={remap=false,nowait=true,expr=true}}
   },
   v = {
     [">"] = { ">gv", "indent"},
