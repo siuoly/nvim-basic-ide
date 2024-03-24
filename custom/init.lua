@@ -3,6 +3,7 @@ vim.g.python3_host_prog = "/home/siuoly/.pyenv/versions/default/bin/python"
 vim.o.wrap = false
 vim.o.pumheight = 10
 vim.o.scrolloff = 7
+vim.o.cmdheight=0
 vim.api.nvim_set_hl( 0, "CurSearch",{ fg="#353b45",bg="#b2800b"})
 -- require("custom.handler").setup()  -- lsp-keymap, diagnostic-symbol, 
 
