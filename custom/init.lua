@@ -4,7 +4,8 @@ vim.o.wrap = false
 vim.o.pumheight = 10
 vim.o.scrolloff = 7
 vim.o.cmdheight=0
-vim.api.nvim_set_hl( 0, "CurSearch",{ fg="#353b45",bg="#b2800b"})
+vim.cmd [[ autocmd RecordingEnter * set cmdheight=1 ]]
+vim.cmd [[ autocmd RecordingLeave * set cmdheight=0 ]]
 -- require("custom.handler").setup()  -- lsp-keymap, diagnostic-symbol, 
 
 -- Auto resize panes when resizing nvim window
@@ -34,3 +35,5 @@ autocmd(
     desc = "if current file has its view file, call :mkview automatically when save file"
   }
 )
+vim.api.nvim_set_hl( 0, "CurSearch",{ fg="#353b45",bg="#b2800b"})
+
